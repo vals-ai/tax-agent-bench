@@ -1,0 +1,55 @@
+[project]
+name = "tax-agent"
+authors = [
+  { name = "Vals AI, Inc.", email = "contact@vals.ai" },
+]
+version = "0.1.0"
+description = "Tax Agent Bench Agent Benchmark Codebase"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+
+dependencies = [
+    "aiohttp>=3.13.2",
+    "backoff>=2.2.1",
+    "beautifulsoup4>=4.14.3",
+    "dotenv>=0.9.9",
+    "requests>=2.32.5",
+    "model-library==0.1.29",
+    "tavily-python>=0.7.23",
+    "simpleeval>=1.0.7",
+    "pypdf>=5.1.0",
+    "tqdm>=4.67.1",
+    "httpx>=0.28.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tax_agent"]
+
+[dependency-groups]
+dev = [
+  # style
+  "ruff",
+  "basedpyright",
+]
+
+[project.scripts]
+tax-agent = "tax_agent.run_agent:main_sync"
+
+[tool.ruff]
+# The code was written at ~110 columns (long tool descriptions, argparse help
+# strings, f-string error messages). Formatting at ruff's 88-column default would
+# reflow ~7% of lines for no readability gain, so the config matches the source.
+line-length = 110
+
+[tool.basedpyright]
+exclude = [
+  "data/*",
+  ".*",
+]
+typeCheckingMode = "basic"
+reportExplicitAny = false
