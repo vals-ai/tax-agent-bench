@@ -1,0 +1,388 @@
+{
+  "dataset_name": "public",
+  "suite_title": "Tax Agent Bench public sample",
+  "suite_version": 2,
+  "suite_number_of_tests": 5,
+  "suite_number_of_checks": 80,
+  "tests": [
+    {
+      "id": "P-001",
+      "question": "ABC Corporation is a domestic C corporation on a calendar year basis that has accumulated a net operating loss of $3,000,000.00 from tax years 2022 to 2024. On July 1, 2025 an investor group acquired 55.00% of ABC Corp's outstanding common stock from existing shareholders in one transaction. ABC Corp. has made the closing of the books election under Treas Reg §1.382-6(d) for the 2025 tax year.\nThe following has occurred before the acquisition:\nThe fair market value of all outstanding ABC Corp stock is $6,000,000.00;\nLong term tax exempt rate for the month is 4.00%;\nThe fair market value of ABC Corp's assets is $4,800,000.00; and\nThe total adjusted basis of all ABC Corporation assets is $4,000,000.00.\nDuring 2025:\nJan 1 to July 1 - taxable income of $150,000.00;\nJuly 2 to Dec 31 - taxable income of $500,000.00;\nTotal taxable income before net operating loss is $650,000.00;\nAfter the acquisition ABC Corp recognized $200,000.00 of gain on the sale of an investment property that is a recognized built-in gain under Internal Revenue Code §382(h)(2)(A).\nHas an ownership change occurred, when, and under what guidance? What is ABC Corp’s annual limitation under Internal Revenue Code §382(b)(1) and what is their limitation applying the change year proportion rule under Internal Revenue Code §382(b)(3)? Does ABC Corp have a recognized net unrealized built in gain under Internal Revenue Code §382(h)(3)? If so, does the threshold apply and how does the $200,000.00 affect the tax §382 limitation for 2025? After the closing of the books election and all relevant limitations that can be applied, what is the maximum amount of the $3,000,000.00 net operating loss carryforward that ABC Corp may use in 2025, and what net operating loss carryforward balance remains for 2026, if any?",
+      "checks": [
+        {
+          "criteria": "Identifies that an ownership change has occurred under Internal Revenue Code §382(g)(1) because the investor group increased its ownership by 55 percentage points, which exceeded the 50 point threshold, with a change date of July 1, 2025.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Calculates the annual §382 limitation as $240,000.00, calculated as the fair market value of ABC Corp.’s $6,000,000.00 stock multiplied by the applicable long-term tax-exemption rate of 4.00%.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Calculates the change year prorated §382 limitation as $120,328.77, calculated as $240,000.00 multiplied by 183 post-change days divided by 365 days under Internal Revenue Code §382(b)(3)(A).",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Determines that ABC Corp.’s net unrealized built in gain of $800,000.00 exceeds the Internal Revenue Code §382(h)(3)(B) threshold of 15.00% of $4,800,000.00, or $720,000.00, and that the built in gain rules therefore apply.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Calculates the adjusted §382 limitation for tax year 2025 as $320,328.77, reflecting the base change year prorated limitation of $120,328.77 increased by a realized built in gain of $200,000.00 under Internal Revenue Code §382(h)(1)(A).",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Calculates the total net operating loss used in the 2025 tax year as $470,328.77, calculated as $150,000.00 applied against a pre-change period income without §382 limitation and $320,328.77 applied against a post-change period income subject to the adjusted §382 limitation.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Calculates the remaining net operating loss carryforward available for tax year 2026 as $2,529,671.23, or $3,000,000.00 minus the $470,328.77 used in 2025.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Identifies Internal Revenue Code § 382(b)(1) as the governing authority for the annual § 382 limitation.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Distinguishes the unrestricted net operating loss offset against pre-change period income from the § 382-limited offset against post-change period income.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Identifies Internal Revenue Code §382(b)(2) and notes that any unused §382 limitation from a post-change year carries over to increase the §382 limitation in the succeeding year.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Calculates the remaining net unrealized built in gain available for future recognition periods as $600,000.00, or equal to the $800,000.00 net unrealized built in gain minus the $200,000.00 realized built in gain recognized in the 2025 tax year.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Identifies the post-change period as beginning July 2, 2025, and correctly counts 183 post-change days in the 2025 tax year.",
+          "severity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "P-002",
+      "question": "For calendar tax year 2025, Company A is a domestic C corporation that acts as the purchasing corporation in a qualified stock purchase (QSP). Company A is the common parent of a consolidated group that includes Target Corporation as the new target, and Company A will attach Target Corporation’s supplemental Form 8883 to the group’s 2025 consolidated Form 1120. Company A and the selling consolidated group's common parent timely filed a joint Internal Revenue Service Form 8023 to make an irrevocable election under Internal Revenue Code (I.R.C.) § 338(h)(10) regarding the acquisition of Target Corporation on June 1, 2023. All dollar values are stated in thousands. During the current 2025 tax year, the following subsequent events occurred:\n\n+ A milestone event specified in the initial acquisition agreement was achieved, triggering a mandatory contingent earn-out payment of $5,300.00 thousand from Company A to the sellers on September 1, 2025.\n+ Company A's tax committee determined that under the contingent-payment interest rules of § 1274, this $5,300.00 thousand outlay must be bifurcated into a $5,000.00 thousand principal adjustment and $300.00 thousand of imputed interest.\n+ The historic Class I through Class VI asset allocation limits from the initial 2023 IRS Form 8883 filing were already fully exhausted at their maximum fair market values on the acquisition date.\n \nDraft a comprehensive, structured technical text block for Company A's 2025 tax compliance files that explicitly details the form-filling and reporting requirements for this cross-period adjustment. In the text block, answer the following: In exactly which Part of IRS Form 8883 must the $5,000.00 thousand principal adjustment be reported under the residual method, and on precisely which tax reporting form, schedule, and line must the isolated $300.00 thousand imputed interest portion be reported?",
+      "checks": [
+        {
+          "criteria": "Concludes that Company A reports the $5,000.00 thousand principal adjustment on Internal Revenue Service Form 8883, Part VI, Supplemental Statement of Assets Transferred.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Concludes that Company A allocates the full $5,000.00 thousand principal adjustment to Class VII goodwill and going concern value.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Concludes that Company A reports the $300.00 thousand imputed interest on the 2025 Internal Revenue Service Form 1120, page 1, line 18, Interest.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that no separate Form 1120 schedule applies to the $300.00 thousand amount reported on Form 1120, page 1, line 18.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Determines that Company A files a supplemental Form 8883 for calendar tax year 2025.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that Company A completes Form 8883 Parts I through IV and Part VI for the 2025 supplemental filing.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that form 8883 Part VI reports Company A’s redetermined Adjusted Grossed-Up Basis (AGUB) allocation.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Identifies that form 8883 Part VI identifies the previously reported asset allocation.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Identifies that form 8883 Part VI identifies the $5,000.00 thousand increase.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Identifies that form 8883 Part VI identifies the milestone earn-out payment as the reason for the increase.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Calculates that the $5,300.00 thousand contingent payment is bifurcated into $5,000.00 thousand of principal and $300.00 thousand of imputed interest under Internal Revenue Code (I.R.C.) § 1274.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that the $300.00 thousand imputed interest is excluded from Adjusted Grossed-Up Basis (AGUB).",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that the $300.00 thousand imputed interest is excluded from Form 8883 Part VI.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that the $300.00 thousand imputed interest is excluded from Class VII tax basis.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that Treasury Regulation § 1.338-7 requires Company A’s redetermined Adjusted Grossed-Up Basis (AGUB) to be allocated under Treasury Regulation § 1.338-6.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Explains that Treasury Regulation § 1.338-6 applies the residual allocation method sequentially from Class I through Class VII assets.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that allocations to Class I through Class VI assets cannot exceed their fair market values.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Determines that the increase allocated to each of Class I, Class II, Class III, Class IV, Class V, and Class VI is $0.00 thousand because their acquisition-date fair market value limits were exhausted.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Notes that the $300.00 thousand interest expense is subject to otherwise applicable deduction limitations.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Concludes that no new Internal Revenue Service Form 8023 filing is required for the 2025 earn-out adjustment.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States that Company A retains a supporting statement with the supplemental Form 8883 workpapers that explains the contingent-payment adjustment.",
+          "severity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "P-003",
+      "question": "During the 2025 tax year, Solar Co began construction on a 3-megawatt (MW) solar facility on March 1, 2025, and satisfied the physical work test for beginning construction. On June 1, 2025, Solar Co suspended construction for eight months after its financing became unavailable. Construction resumed in February 2026. Solar Co intends to rely on the continuity safe harbor described in IRS Notice 2022-61 and plans to place the facility in service during 2029.\nHow does the eight-month construction suspension affect Solar Co's eligibility for the Internal Revenue Code § 48E Clean Electricity Investment Credit? Specifically, does the interruption prevent Solar Co from relying on the continuity safe harbor, and what is the applicable placed-in-service deadline for maintaining eligibility under Notice 2022-61?",
+      "checks": [
+        {
+          "criteria": "Identifies that Solar Co satisfied the physical work test by beginning physical work of a significant nature on March 1, 2025.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Concludes that Solar Co began construction before the September 2, 2025 effective date of Notice 2025-42.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Concludes that Solar Co began construction before the July 4, 2026 statutory cutoff enacted by the One Big Beautiful Bill Act.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Explains that because construction began on March 1, 2025, the later restrictions applicable to projects beginning construction after those dates do not prevent Solar Co from qualifying for the Sec. 48E credit.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Explains that satisfying the physical work test alone does not establish Internal Revenue Code § 48E eligibility.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Explains that Solar Co must also satisfy the continuity requirement, either through the continuity safe harbor or a facts-and-circumstances analysis.",
+          "severity": 1.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that Notice 2022-61 provides a four-calendar-year continuity safe harbor measured from the year construction began.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Identifies December 31, 2029 as the applicable continuity safe-harbor placed-in-service deadline.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Concludes that Solar Co’s planned 2029 placed-in-service date falls within the four-year continuity safe harbor period.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Concludes that the eight-month construction pause does not automatically cause Solar Co to lose eligibility for the Sec. 48E credit or prevent reliance on the continuity safe harbor.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Explains that a temporary interruption in construction may be permissible under beginning-of-construction guidance and does not necessarily restart the beginning-of-construction date.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Concludes that if the facility is placed in service by December 31, 2029, Solar Co generally may rely on the continuity safe harbor notwithstanding the eight-month pause.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Explains that if the continuity safe harbor were not satisfied, continuity would be evaluated under a facts-and-circumstances analysis.",
+          "severity": 3.0
+        },
+        {
+          "criteria": "Identifies that documentation regarding the financing-related construction interruption would strengthen Solar Co’s position if continuity were challenged.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Correctly cites Notice 2022-61 as the governing authority for the physical work test and continuity safe harbor.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Correctly cites Notice 2013-29 as the foundational beginning-of-construction guidance incorporated into later notices.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Correctly references Notice 2025-42 when discussing post-September 2, 2025 beginning-of-construction restrictions for wind and solar projects.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Correctly references Sec. 48E(e)(4), as added by the One Big Beautiful Bill Act, when discussing the accelerated termination rules for certain later-starting wind and solar projects.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Concludes that Solar Co does not restart the beginning-of-construction analysis when construction resumes in February 2026 and retains March 1, 2025 as its beginning-of-construction date.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Concludes that Notice 2025-42’s post-September 2, 2025 beginning-of-construction restrictions do not apply because Solar Co began construction on March 1, 2025.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Concludes that the July 4, 2026 beginning-of-construction cutoff under Sec. 48E(e)(4) does not apply because Solar Co began construction on March 1, 2025.",
+          "severity": 2.0
+        }
+      ]
+    },
+    {
+      "id": "P-004",
+      "question": "For calendar tax year 2025, how do the tax credit allocation and liquidity mechanics differ between New York State's pass-through entity tax (PTET) and California's pass-through entity tax (PTET) regarding whether the resulting credit passed through to an individual partner is fully refundable if it exceeds that partner's personal state income tax liability for the year?",
+      "checks": [
+        {
+          "criteria": "States that New York’s 2025 PTET credit is refundable.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that New York’s excess PTET credit may be credited or refunded without interest.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that California’s 2025 PTE elective tax credit is nonrefundable.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that California’s unused 2025 PTE elective tax credit may be carried forward.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that New York’s individual PTET credit equals the partner’s direct share of PTET.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that New York aggregates multiple PTET credits if the taxpayer receives credits from multiple electing entities.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that New York’s PTET credit is claimed by an eligible Article 22 taxpayer.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that New York’s PTET credit is limited to the taxpayer’s direct share of PTET reported by the electing entity.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that the electing entity must provide required taxpayer-identifying information to support the New York PTET credit.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that California’s individual PTE elective tax credit is a credit against California net tax.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "States that California’s qualified taxpayer rules generally exclude partnerships.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that California’s qualified taxpayer rules generally exclude disregarded business entities.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "States that the California Form FTB 3804-CR as the form used to claim the California PTE elective tax credit.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States that the comparison year is the calendar tax year 2025.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States that the recipient is an individual partner.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States that the New York Tax Law § 606(kkk) as the New York refundability authority.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States New York Tax Law § 863 as the New York PTET credit authority.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "States the California Revenue and Taxation Code § 17052.10 is the governing authority.",
+          "severity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "P-005",
+      "question": "A domestic corporation timely filed its 2025 Form 1120 by April 15, 2026.\n\nDuring an Internal Revenue Service Large Business and International examination, the corporation’s representative left the examiner a voicemail requesting net rate netting under Internal Revenue Code § 6621(d).\n\nIs the oral request sufficient to establish a valid net rate netting claim?\n\nIf not, what written submission must the corporation make, which form must the examiner include in the case file, which form must the corporation file, and by what point in the examination must the request be submitted?",
+      "checks": [
+        {
+          "criteria": "Identifies that the corporation’s oral request is insufficient to establish a valid net rate netting claim.",
+          "severity": 1.0
+        },
+        {
+          "criteria": "Identifies that the corporation must submit the net rate netting request in writing under Internal Revenue Manual § 4.10.26.3.",
+          "severity": 3.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Identifies that the corporation must submit the net rate netting request in writing under Revenue Procedure 2000-26.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Defines Form 3198 as Special Handling Notice for Examination Case Processing.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Identifies that the examiner must complete and attach Form 3198 to the examination case file.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Defines Form 843 as Claim for Refund and Request for Abatement.",
+          "severity": 2.0
+        },
+        {
+          "criteria": "Identifies that Form 843 is not required to request net rate netting, and that the corporation may instead furnish the required information in a letter or other written statement.",
+          "severity": 2.0,
+          "category": "must_pass"
+        },
+        {
+          "criteria": "Identifies that the written request and required forms must be submitted before the examination is closed.",
+          "severity": 2.0
+        }
+      ]
+    }
+  ]
+}

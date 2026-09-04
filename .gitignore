@@ -1,0 +1,15 @@
+results/
+results-*.json
+logs/
+__pycache__/
+*.pyc
+.env
+*private.csv
+*private.txt
+*private*.txt
+data/cfr/
+data/usc/
+.DS_STORE
+*.zip
+tax-agent-bench-*.json
+Screenshot*.png
